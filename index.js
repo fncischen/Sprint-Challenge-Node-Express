@@ -5,14 +5,12 @@ const express = require('express');
 const server = express();
 
 const actionRoutes = require("./routers/actions.js");
-const projectRoutes = require("./routers/projects.js/index.js");
+const projectRoutes = require("./routers/projects.js");
 
 server.use(express.json());
 server.use('/actions', actionRoutes);
-server.use('/posts', postRoutes);
+server.use('/projects', projectRoutes);
 
-const port = process.env.PORT || 5000;
-
-server.listen(port, () =>
+server.listen(5000, () =>
 console.log('Server running on http://localhost:5000')
 );
