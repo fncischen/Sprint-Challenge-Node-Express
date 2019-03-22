@@ -28,7 +28,7 @@ router.get("/:id", async (req, res) => {
 
 })
 
-router.post("/", actionMiddleware( async (req, res, next) => { 
+router.post("/", actionMiddleware(async (req, res, next) => { 
 
     try{
         const action = await actionData.get(req.params.id);
@@ -41,7 +41,7 @@ router.post("/", actionMiddleware( async (req, res, next) => {
 
 }))
 
-router.put("/:id", actionMiddleware( async (req, res, next) => { 
+router.put("/:id", actionMiddleware(async (req, res, next) => { 
 
     try{
         const action = await actionData.get(req.params.id);
