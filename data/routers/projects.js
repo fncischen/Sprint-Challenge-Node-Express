@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const projectData = require("../helpers/projectModel.js");
-const projectsMiddleware = requre("../middleware/projectMiddleware.js")
+const projectsMiddleware = require("../middleware/projectMiddleware.js")
 
 router.get("/" , async (req, res) => { 
     try{
@@ -14,9 +14,9 @@ router.get("/" , async (req, res) => {
     }
 })
 
-router.get("/:id", projectsMiddleware(async (req, res) => { 
+router.get("/:project_id", projectsMiddleware(async (req, res) => { 
     try{
-        const project = await projectData.get(req.params.id);
+        const project = await projectData.get(req.params.project_id);
         res.status(201).json(project);
     }
     catch
@@ -36,10 +36,10 @@ router.post("/", projectsMiddleware(async (req, res) => {
     }
 }))
 
-router.put("/:id", async (req, res) => { 
+router.put("/:project_id", async (req, res) => { 
 
     try{
-        const project = await projectData.update(req.params.id, req.body);
+        const project = await projectData.update(req.params.project_id, req.body);
         res.status(201).json(project);
     }
     catch

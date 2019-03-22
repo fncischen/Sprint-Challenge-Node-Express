@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const actionData = require("../helpers/actionModel.js");
-const actionMiddleware = requre("../middleware/actionsMiddleware.js")
+const actionMiddleware = require("../middleware/actionsMiddleware.js")
 
 router.get("/" , async (req, res) => {
     try{
