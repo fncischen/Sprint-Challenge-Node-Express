@@ -5,7 +5,7 @@ const express = require('express');
 const server = express();
 
 const actionRoutes = require("./routers/actions.js");
-const postRoutes = require("./routers/posts.js");
+const projectRoutes = require("./routers/projects.js/index.js");
 
 server.use(express.json());
 server.use('/actions', actionRoutes);
