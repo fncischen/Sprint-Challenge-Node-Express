@@ -14,7 +14,7 @@ router.get("/" , async (req, res) => {
     }
 })
 
-router.get("/:id", projectsMiddleware, async (req, res) => { 
+router.get("/:id", projectsMiddleware(async (req, res) => { 
     try{
         const project = await projectData.get(req.params.project_id);
         res.status(201).json(project);
@@ -23,9 +23,9 @@ router.get("/:id", projectsMiddleware, async (req, res) => {
     {
         res.status(500).json({errorMessage: "We had errors retrieving your project"});
     }
-})
+}))
 
-router.post("/", projectsMiddleware, async (req, res) => { 
+router.post("/", projectsMiddleware(async (req, res) => { 
     try{
         const project = await projectData.insert(req.body);
         res.status(201).json(project);
@@ -34,7 +34,7 @@ router.post("/", projectsMiddleware, async (req, res) => {
     {
         res.status(500).json({errorMessage: "We had errors posting your project"});
     }
-})
+}))
 
 router.put("/:id", async (req, res) => { 
 
