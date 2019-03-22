@@ -2,12 +2,14 @@ const express = require('express');
 const router = express.Router();
 const postData = require("../data/helpers/projectModel.js");
 
-router.get(() => { })
+router.get("/" , async (req, res) => { })
 
-router.get(() => { })
+router.get("/:id", async (req, res) => { })
 
-router.post(() => { })
+router.post("/", async (req, res) => { })
 
-router.put(() => { })
+router.put("/:id", async (req, res) => { })
 
-router.delete(() => { })
+router.delete("/:id", async (req, res) => { })
+
+module.export = router;
