@@ -5,7 +5,7 @@ const projectData = require("../data/helpers/projectModel.js");
 router.get("/" , async (req, res) => { 
     try{
         const posts = await projectData.get();
-        res.json(posts);
+        res.status(201).json(posts);
     }
     catch
     {
@@ -16,7 +16,7 @@ router.get("/" , async (req, res) => {
 router.get("/:id", async (req, res) => { 
     try{
         const posts = await projectData.get(req.params.id);
-        res.json(posts);
+        res.status(201).json(posts);
     }
     catch
     {
@@ -27,7 +27,7 @@ router.get("/:id", async (req, res) => {
 router.post("/", async (req, res) => { 
     try{
         const posts = await projectData.insert(req.body);
-        res.json(posts);
+        res.status(201).json(posts);
     }
     catch
     {
@@ -37,18 +37,26 @@ router.post("/", async (req, res) => {
 
 router.put("/:id", async (req, res) => { 
 
-
-
-
-
-
+    try{
+        const posts = await projectData.update(req.params.id, req.body);
+        res.status(201).json(posts);
+    }
+    catch
+    {
+        res.status(500).json({errorMessage: "We had errors retrieving your posts"});
+    }
 })
 
 router.delete("/:id", async (req, res) => { 
 
-
-
-
+    try{
+        const posts = await projectData.remove(req.params.id);
+        res.status(201).json(posts);
+    }
+    catch
+    {
+        res.status(500).json({errorMessage: "We had errors retrieving your posts"});
+    }
 
 })
 
