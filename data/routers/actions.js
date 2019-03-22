@@ -31,7 +31,7 @@ router.get("/:id", async (req, res) => {
 router.post("/", actionMiddleware(async (req, res, next) => { 
 
     try{
-        const action = await actionData.get(req.params.id);
+        const action = await actionData.insert(req.body);
         res.status(201).json(action);
     }
     catch
@@ -44,7 +44,7 @@ router.post("/", actionMiddleware(async (req, res, next) => {
 router.put("/:id", actionMiddleware(async (req, res, next) => { 
 
     try{
-        const action = await actionData.get(req.params.id);
+        const action = await actionData.update(req.params.id, req.body);
         res.status(201).json(action);
     }
     catch
@@ -57,7 +57,7 @@ router.put("/:id", actionMiddleware(async (req, res, next) => {
 router.delete("/:id", async (req, res) => { 
 
     try{
-        const action = await actionData.get(req.params.id);
+        const action = await actionData.get(req.params.id, req.body);
         res.status(201).json(action);
     }
     catch
