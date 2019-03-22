@@ -39,7 +39,7 @@ router.post("/", projectsMiddleware(async (req, res, next) => {
 router.put("/:id", projectsMiddleware(async (req, res) => { 
 
     try{
-        const project = await projectData.update(req.params.project_id, req.body);
+        const project = await projectData.update(req.params.id, req.body);
         res.status(201).json(project);
     }
     catch
