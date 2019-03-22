@@ -28,7 +28,7 @@ router.get("/:id", async (req, res) => {
 
 })
 
-router.post("/", actionMiddleware, async (req, res) => { 
+router.post("/", actionMiddleware(async (req, res) => { 
 
     try{
         const action = await actionData.get(req.params.id);
@@ -39,9 +39,9 @@ router.post("/", actionMiddleware, async (req, res) => {
         res.status(500).json({errorMessage: "We had errors posting your action"});
     }
 
-})
+}))
 
-router.put("/:id", actionMiddleware, async (req, res) => { 
+router.put("/:id", actionMiddleware(async (req, res) => { 
 
     try{
         const action = await actionData.get(req.params.id);
@@ -52,7 +52,7 @@ router.put("/:id", actionMiddleware, async (req, res) => {
         res.status(500).json({errorMessage: "We had errors updating your action"});
     }
 
-})
+}))
 
 router.delete("/:id", async (req, res) => { 
 
