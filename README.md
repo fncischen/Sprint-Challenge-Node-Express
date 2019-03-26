@@ -26,13 +26,27 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+* The Express Middleware allows the client to make a series of requests made to the server, that return responses based on the type of arguments made from the requests.
+* The Express Middleware can handle application level middleware, routing middleware, or error handling middleware.  
+
 - [ ] Describe Middleware?
+* Middleware are a series of higher order functions (or Promise Objects) that manage the state and data of a web application based on the requests made by the user, and the responses that the server is providing. 
+
+Middleware are like a series of steps in a recipie to make coffee at a coffeeshop a barista has to make, based on requests made by the customer.
+The steps in the recipie return responses based on how the barista makes coffee. 
 
 - [ ] Describe a Resource?
+* In the RESTful Web API framework, every object is a resource which has a unique URL that can be represented in an infinite amount of ways. 
+A resource is like a name of a coffee order at a coffee shop, which can be requested by the barista as a unique URL. 
 
 - [ ] What can the API return to help clients know if a request was successful?
 
+* The server can return HTML status results, determining if the CRUD request made was successful or has an error. 
+
 - [ ] How can we partition our application into sub-applications?
+
+* One can use the Express Middleware routing functionality - like React - to conditionally render, or route the client to different
+aspects of the application based on the HTML requests made by the client. 
 
 ## Project Setup
 
